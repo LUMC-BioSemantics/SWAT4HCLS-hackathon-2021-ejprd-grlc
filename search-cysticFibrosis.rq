@@ -1,0 +1,40 @@
+#+ endpoint: http://ejprd.fair-dtls.surf-hosted.nl:8085/blazegraph/namespace/kb/sparql
+#+ endpoint_in_url: False
+
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcat-ext: <http://purl.org/biosemantics-lumc/ontologies/dcat-extension/>
+PREFIX dcterm: <http://purl.org/dc/terms/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
+
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcat-ext: <http://purl.org/biosemantics-lumc/ontologies/dcat-extension/>
+PREFIX dcterm: <http://purl.org/dc/terms/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
+
+
+SELECT DISTINCT ?resource ?resourceName ?resourceDescription ?resourceUrl WHERE { 
+  
+  # query BioBanks OR Patient registries about "Cystic fibrosis" rare disease (Orphanet_586)
+  VALUES (?theme) {(<http://www.orpha.net/ORDO/Orphanet_586>)}
+  
+  
+    ?resource a ?resourceType;
+                dcat:theme ?theme;
+                dcterm:title ?resourceName.
+  
+  OPTIONAL {
+    
+    ?resource dcterm:description ?resourceDescription;
+              dcat:landingPage ?resourceUrl.
+  
+  }
+
+  
+  FILTER ((?resourceType = dcat-ext:Biobank) || (?resourceType = dcat-ext:PatientRegistry))
+}
