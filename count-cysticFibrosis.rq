@@ -9,24 +9,14 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
 
-# Query for BioBanks OR patient registries that are about "Cystic fibrosis" rare disease
-SELECT DISTINCT ?resource ?resourceName ?resourceDescription ?resourceUrl WHERE { 
-  
-  # Select theme = "Cystic fibrosis" rare disease (Orphanet_586)
-  VALUES (?theme) {(<http://www.orpha.net/ORDO/Orphanet_586>)}
+# Count the number of themes by biobank/patient registry
+SELECT ?resource (COUNT(DISTINCT ?theme) AS ?themes) WHERE { 
   
   
     ?resource a ?resourceType;
-                dcat:theme ?theme;
-                dcterm:title ?resourceName.
-  
-  OPTIONAL {
-    
-    ?resource dcterm:description ?resourceDescription;
-              dcat:landingPage ?resourceUrl.
-  
-  }
-
+                dcat:theme ?theme.
   
   FILTER ((?resourceType = dcat-ext:Biobank) || (?resourceType = dcat-ext:PatientRegistry))
 }
+GROUP BY ?resource
+ORDER BY desc(?themes)
