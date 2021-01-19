@@ -9,8 +9,7 @@ PREFIX dcat-ext: <http://purl.org/biosemantics-lumc/ontologies/dcat-extension/>
 PREFIX dcterm: <http://purl.org/dc/terms/>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
+PREFIX fdo: <http://rdf.biosemantics.org/ontologies/fdp-o#> 
 
 SELECT DISTINCT ?resource ?title ?description ?homepage ?resourceType WHERE { 
   
