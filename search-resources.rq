@@ -9,8 +9,7 @@
 #+     "name": "?title",
 #+     "description": "?description",
 #+     "homepage": "?homepage",
-#+     "resource_uri": "?resource",
-#+     "$anchor": "resource_uri"
+#+     "$anchor": "id"
 #+   }
 
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
