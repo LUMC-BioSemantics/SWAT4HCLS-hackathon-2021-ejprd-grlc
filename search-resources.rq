@@ -20,7 +20,7 @@ PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX fdo: <http://rdf.biosemantics.org/ontologies/fdp-o#> 
 
-SELECT DISTINCT ?resource ?title ?description ?homepage ?resourceType WHERE { 
+SELECT DISTINCT ?resource ?id ?title ?description ?homepage ?resourceType WHERE { 
    ?resource a ?resourceType ;
              dcat:theme ?_orphaCode_iri;
              dcterm:description ?description;
