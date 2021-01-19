@@ -12,8 +12,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 # Count the total number of biobanks/patient registries
 SELECT (COUNT(DISTINCT ?resource) AS ?resources) WHERE { 
   
-  
-    ?resource a ?resourceType.
+  ?resource a ?resourceType .
   
   FILTER ((?resourceType = dcat-ext:Biobank) || (?resourceType = dcat-ext:PatientRegistry))
 }
