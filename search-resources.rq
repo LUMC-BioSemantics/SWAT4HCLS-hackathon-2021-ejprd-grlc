@@ -3,6 +3,14 @@
 #+ description: Get response to a query for a certain rare disease (resources).
 #+ defaults:
 #+   - orphaCode: http://www.orpha.net/ORDO/Orphanet_586
+#+ transform: {
+#+     "id": "?id",
+#+     "type": "?resourceType",
+#+     "name": "?title",
+#+     "description": "?description",
+#+     "homepage": "?homepage",
+#+     "$anchor": "id"
+#+   }
 
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcat-ext: <http://purl.org/biosemantics-lumc/ontologies/dcat-extension/>
