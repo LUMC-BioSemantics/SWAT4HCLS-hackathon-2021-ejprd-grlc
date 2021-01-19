@@ -9,7 +9,8 @@
 #+     "name": "?title",
 #+     "description": "?description",
 #+     "homepage": "?homepage",
-#+     "$anchor": "id"
+#+     "resource_uri": "?resource",
+#+     "$anchor": "resource_uri"
 #+   }
 
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
@@ -20,10 +21,6 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX fdo: <http://rdf.biosemantics.org/ontologies/fdp-o#> 
 
 SELECT DISTINCT ?resource ?title ?description ?homepage ?resourceType WHERE { 
-  
-   # Select theme = "Cystic fibrosis" rare disease (Orphanet_586)
-   #VALUES (?_theme_iri) {(<http://www.orpha.net/ORDO/Orphanet_586>)}
-  
    ?resource a ?resourceType ;
              dcat:theme ?_orphaCode_iri;
              dcterm:description ?description;
