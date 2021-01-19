@@ -12,14 +12,17 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
 
-# Count the number of biobanks/patient registries for Cystic Fibrosis
-SELECT (COUNT(DISTINCT ?resource) AS ?resources) WHERE { 
+SELECT DISTINCT ?resource ?title ?description ?homepage ?resourceType WHERE { 
   
    # Select theme = "Cystic fibrosis" rare disease (Orphanet_586)
    #VALUES (?_theme_iri) {(<http://www.orpha.net/ORDO/Orphanet_586>)}
   
    ?resource a ?resourceType ;
-             dcat:theme ?_theme_iri .
+             dcat:theme ?_theme_iri;
+             dcterm:description ?description;
+             dcterm:title ?title; 
+             dcat:landingPage ?homepage                                                                                  
+             fdo:metadataIdentifier [ dcterm:identifier ?id].
   
   FILTER ((?resourceType = dcat-ext:Biobank) || (?resourceType = dcat-ext:PatientRegistry))
 }
