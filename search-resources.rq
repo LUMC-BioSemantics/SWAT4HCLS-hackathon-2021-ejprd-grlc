@@ -21,7 +21,7 @@ SELECT DISTINCT ?resource ?title ?description ?homepage ?resourceType WHERE {
              dcat:theme ?_theme_iri;
              dcterm:description ?description;
              dcterm:title ?title; 
-             dcat:landingPage ?homepage                                                                                  
+             dcat:landingPage ?homepage;                                                                                  
              fdo:metadataIdentifier [ dcterm:identifier ?id].
   
   FILTER ((?resourceType = dcat-ext:Biobank) || (?resourceType = dcat-ext:PatientRegistry))
