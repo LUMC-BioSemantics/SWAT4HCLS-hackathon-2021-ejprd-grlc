@@ -10,9 +10,9 @@ PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX fdo: <http://rdf.biosemantics.org/ontologies/fdp-o#>
 
-SELECT (COUNT(DISTINCT ?resource) AS ?resources) WHERE { 
+SELECT DISTINCT ?resource ?title ?description ?homepage ?resourceType WHERE { 
   
-   BIND( IRI(CONCAT("http://www.orpha.net/ORDO/",?_ordo_code)) as ?theme)
+   BIND( IRI(CONCAT("http://www.orpha.net/ORDO/",?_orphaCode)) as ?theme)
   
    ?resource a ?resourceType ;
              dcat:theme ?theme;
