@@ -1,7 +1,7 @@
 #+ endpoint: http://ejprd.fair-dtls.surf-hosted.nl:8085/blazegraph/namespace/kb/sparql
 #+ endpoint_in_url: False
 #+ defaults:
-#+   - ordo_code: Orphanet_586
+#+   - orphaCode: Orphanet_586
 
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcat-ext: <http://purl.org/biosemantics-lumc/ontologies/dcat-extension/>
@@ -12,7 +12,7 @@ PREFIX fdo: <http://rdf.biosemantics.org/ontologies/fdp-o#>
 
 SELECT (COUNT(DISTINCT ?resource) AS ?resources) WHERE { 
   
-   BIND( IRI(CONCAT("http://www.orpha.net/ORDO/",?_ordo_code)) as ?theme)
+   BIND( IRI(CONCAT("http://www.orpha.net/ORDO/",?_orphaCode)) as ?theme)
   
    ?resource a ?resourceType ;
              dcat:theme ?theme;

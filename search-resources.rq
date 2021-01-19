@@ -2,7 +2,7 @@
 #+ endpoint_in_url: False
 #+ description: Get response to a query for a certain rare disease (resources).
 #+ defaults:
-#+   - theme: http://www.orpha.net/ORDO/Orphanet_586
+#+   - orphaCode: http://www.orpha.net/ORDO/Orphanet_586
 
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcat-ext: <http://purl.org/biosemantics-lumc/ontologies/dcat-extension/>
@@ -17,7 +17,7 @@ SELECT DISTINCT ?resource ?title ?description ?homepage ?resourceType WHERE {
    #VALUES (?_theme_iri) {(<http://www.orpha.net/ORDO/Orphanet_586>)}
   
    ?resource a ?resourceType ;
-             dcat:theme ?_theme_iri;
+             dcat:theme ?_orphaCode_iri;
              dcterm:description ?description;
              dcterm:title ?title; 
              dcat:landingPage ?homepage;                                                                                  
