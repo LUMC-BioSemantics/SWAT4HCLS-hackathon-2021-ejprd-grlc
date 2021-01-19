@@ -17,7 +17,7 @@ SELECT (COUNT(DISTINCT ?resource) AS ?resources) WHERE {
    BIND( IRI(CONCAT("http://www.orpha.net/ORDO/",?_ordo_code)) as ?theme)
   
    ?resource a ?resourceType ;
-             dcat:theme ?_ordo_code .
+             dcat:theme ?theme .
   
   FILTER ((?resourceType = dcat-ext:Biobank) || (?resourceType = dcat-ext:PatientRegistry))
 }

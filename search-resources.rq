@@ -1,5 +1,6 @@
 #+ endpoint: http://ejprd.fair-dtls.surf-hosted.nl:8085/blazegraph/namespace/kb/sparql
 #+ endpoint_in_url: False
+#+ description: Get response to a query for a certain rare disease (resources).
 #+ defaults:
 #+   - theme: http://www.orpha.net/ORDO/Orphanet_586
 
