@@ -1,13 +1,9 @@
 #+ endpoint: http://ejprd.fair-dtls.surf-hosted.nl:8085/blazegraph/namespace/kb/sparql
 #+ endpoint_in_url: False
+#+ description: Get count of number of resources (biobank and patient registries) described in this endpoint.
 
-PREFIX dcat: <http://www.w3.org/ns/dcat#>
+
 PREFIX dcat-ext: <http://purl.org/biosemantics-lumc/ontologies/dcat-extension/>
-PREFIX dcterm: <http://purl.org/dc/terms/>
-PREFIX obo: <http://purl.obolibrary.org/obo/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
 
 # Count the total number of biobanks/patient registries
 SELECT (COUNT(DISTINCT ?resource) AS ?resources) WHERE { 
