@@ -8,11 +8,10 @@ PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcat-ext: <http://purl.org/biosemantics-lumc/ontologies/dcat-extension/>
 
 # Count the number of themes by biobank/patient registry
-SELECT ?_theme_iri (COUNT(DISTINCT ?resource) AS ?resource) WHERE { 
+SELECT (COUNT(DISTINCT ?resource) AS ?resource) WHERE { 
   
   ?resource a ?resourceType ;
             dcat:theme ?_theme_iri .
   
   FILTER ((?resourceType = dcat-ext:Biobank) || (?resourceType = dcat-ext:PatientRegistry))
 }
-GROUP BY ?_theme_iri
