@@ -1,17 +1,18 @@
 #+ endpoint: http://ejprd.fair-dtls.surf-hosted.nl:8085/blazegraph/namespace/kb/sparql
 #+ endpoint_in_url: False
 #+ description: Get count of number of resources (biobank and patient registries) for a given theme URI.
+#+ defaults:
+#+   - theme: http://www.orpha.net/ORDO/Orphanet_586
 
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcat-ext: <http://purl.org/biosemantics-lumc/ontologies/dcat-extension/>
 
 # Count the number of themes by biobank/patient registry
-SELECT ?theme (COUNT(DISTINCT ?resource) AS ?resource) WHERE { 
+SELECT ?_theme_iri (COUNT(DISTINCT ?resource) AS ?resource) WHERE { 
   
   ?resource a ?resourceType ;
-            dcat:theme ?theme .
+            dcat:theme ?_theme_iri .
   
   FILTER ((?resourceType = dcat-ext:Biobank) || (?resourceType = dcat-ext:PatientRegistry))
 }
-GROUP BY ?resource
-ORDER BY desc(?themes)
+GROUP BY ?_theme_iri
