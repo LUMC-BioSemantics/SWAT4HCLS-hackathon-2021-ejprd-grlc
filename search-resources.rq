@@ -1,6 +1,6 @@
 #+ endpoint: http://ejprd.fair-dtls.surf-hosted.nl:8085/blazegraph/namespace/kb/sparql
 #+ endpoint_in_url: False
-#+ description: Get response to a query for a certain rare disease (resources).
+#+ description: Get resources for a given ordo URL.
 #+ defaults:
 #+   - orphaCode: http://www.orpha.net/ORDO/Orphanet_586
 #+ transform: {
@@ -15,8 +15,6 @@
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcat-ext: <http://purl.org/biosemantics-lumc/ontologies/dcat-extension/>
 PREFIX dcterm: <http://purl.org/dc/terms/>
-PREFIX obo: <http://purl.obolibrary.org/obo/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX fdo: <http://rdf.biosemantics.org/ontologies/fdp-o#> 
 
 SELECT DISTINCT ?resource ?id ?title ?description ?homepage ?resourceType WHERE { 
