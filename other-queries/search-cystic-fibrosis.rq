@@ -1,4 +1,4 @@
-#+ endpoint: http://ejprd.fair-dtls.surf-hosted.nl:8085/blazegraph/namespace/kb/sparql
+#+ endpoint: http://ejprd.fair-dtls.surf-hosted.nl:7200/repositories/ordo-catalog-fdp
 #+ endpoint_in_url: False
 
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
